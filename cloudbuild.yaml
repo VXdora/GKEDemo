@@ -1,0 +1,13 @@
+steps:
+
+ # ステップ1: ソースコードのクローン
+ - name: 'gcr.io/cloud-builders/git'
+   args: ['clone', 'https://github.com/VXdora/GKEDemo']
+
+ # ステップ2: Dockerイメージのビルド
+ - name: 'gcr.io/cloud-builders/docker'
+   args: ['build', '-t', 'gcr.io/rich-synapse-428706-s7/gke-demo-app', '.']
+
+ # ステップ3: ビルドしたイメージをGoogle Container Registryにプッシュ
+ - name: 'gcr.io/cloud-builders/docker'
+   args: ['push', 'gcr.io/rich-synapse-428706-s7/gke-demo-app']
