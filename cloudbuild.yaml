@@ -7,3 +7,6 @@ steps:
  # ステップ3: ビルドしたイメージをGoogle Container Registryにプッシュ
  - name: 'gcr.io/cloud-builders/docker'
    args: ['push', 'gcr.io/rich-synapse-428706-s7/gke-demo-app']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
